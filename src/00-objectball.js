@@ -249,3 +249,27 @@ function bigShoeRebounds(){
 }
 
 console.log(bigShoeRebounds());
+
+/// Bonus Questions ///
+function mostPointsScored(){
+    const gameObj = gameObject();
+    let maxScore = 0;
+    let playerName = "";
+
+    for (let gameKey in gameObj) {
+        let teamObj = gameObj[gameKey];
+        for (let teamKey in teamObj){
+            let playersObj = teamObj["players"];
+            for (let playersKey in playersObj){
+                let playerObj = playersObj[playersKey];
+                if (playerObj["points"] > maxScore){
+                    maxScore = playerObj["points"];
+                    playerName = playersKey;
+                }
+            }
+        }
+    }
+    return playerName;
+}
+
+console.log(mostPointsScored());
