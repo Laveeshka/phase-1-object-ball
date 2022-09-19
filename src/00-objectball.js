@@ -273,3 +273,32 @@ function mostPointsScored(){
 }
 
 console.log(mostPointsScored());
+
+//bon, on fait quoi?
+//initialise two variables: winningTeamScore and winningTeamName
+//iterate as uz
+function winningTeam(){
+    const gameObj = gameObject();
+    let winningScore = 0;
+    let winningTeam = "";
+
+    for (let gameKey in gameObj){
+        let teamObj = gameObj[gameKey];
+        let teamScore = 0;
+        for (let teamKey in teamObj){
+            let currentTeamName = teamObj["teamName"];
+            let playersObj = teamObj["players"];
+            for (let playersKey in playersObj){
+                let playerObj = playersObj[playersKey]; //retrieve every player object
+                teamScore += playerObj["points"];
+            }
+            if (teamScore > winningScore) {
+                winningScore = teamScore;
+                winningTeam = currentTeamName;
+            }
+        }
+    }
+    return winningTeam;
+}
+
+console.log(winningTeam());
