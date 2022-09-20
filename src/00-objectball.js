@@ -136,21 +136,32 @@ function numPointsScored(playerName) {
     }
 }
 
-console.log(numPointsScored("Brendan Haywood"));
+//console.log(numPointsScored("Brendan Haywood"));
+
+// function shoeSize(playerName) {
+//     const gameObj = gameObject();
+//     for (let gameKey in gameObj){
+//         let teamObj = gameObj[gameKey];
+//         for (let teamKey in teamObj){
+//             let playersObj = teamObj["players"];
+//             for (let playersKey in playersObj){
+//                 if (playersKey === playerName){
+//                     return playersObj[playersKey]["shoe"];
+//                 }
+//             }
+//         }
+//     }
+// }
+
+//console.log(shoeSize("Brendan Haywood"));
 
 function shoeSize(playerName) {
     const gameObj = gameObject();
-    for (let gameKey in gameObj){
-        let teamObj = gameObj[gameKey];
-        for (let teamKey in teamObj){
-            let playersObj = teamObj["players"];
-            for (let playersKey in playersObj){
-                if (playersKey === playerName){
-                    return playersObj[playersKey]["shoe"];
-                }
-            }
-        }
-    }
+    if (gameObj["home"]["players"][playerName]) 
+        return gameObj["home"]["players"][playerName]["shoe"];
+    
+    else 
+        return gameObj["away"]["players"][playerName]["shoe"];
 }
 
 console.log(shoeSize("Brendan Haywood"));
@@ -167,7 +178,7 @@ function teamColors(teamName){
     }
 }
 
-console.log(teamColors("Charlotte Hornets"));
+//console.log(teamColors("Charlotte Hornets"));
 
 function teamNames(){
     const gameObj = gameObject();
@@ -183,7 +194,7 @@ function teamNames(){
     return teamNamesArray;
 }
 
-console.log(teamNames());
+//console.log(teamNames());
 
 function playerNumbers(teamName){
     const gameObj = gameObject(); //assigning game object to a variable
@@ -204,7 +215,7 @@ function playerNumbers(teamName){
     return jerseyNumbersArray;
 }
 
-console.log(playerNumbers("Charlotte Hornets"));
+//console.log(playerNumbers("Charlotte Hornets"));
 
 function playerStats(playerName){
     const gameObj = gameObject();
@@ -221,7 +232,7 @@ function playerStats(playerName){
     }
 }
 
-console.log(playerStats("Brendan Haywood"));
+//console.log(playerStats("Brendan Haywood"));
 
 function bigShoeRebounds(){
     const gameObj = gameObject();
