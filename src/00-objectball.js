@@ -326,3 +326,30 @@ function playerWithLongestName(){
 }
 
 console.log(playerWithLongestName());
+
+//// Super Bonus ////
+function doesLongNameStealATon(){
+    const playerLongName = playerWithLongestName();
+    
+    const gameObj = gameObject();
+    let maxSteals = 0;
+
+    for (let gameKey in gameObj) {
+        let teamObj = gameObj[gameKey];
+        for (let teamKey in teamObj){
+            let playersObj = teamObj["players"];
+            for (let playersKey in playersObj){
+                let playerObj = playersObj[playersKey];
+                if (playerObj["steals"] > maxSteals){
+                    maxSteals = playerObj["steals"];
+                    if (playersKey === playerLongName){
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+console.log(doesLongNameStealATon());
