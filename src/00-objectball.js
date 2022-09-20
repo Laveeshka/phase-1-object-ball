@@ -275,7 +275,7 @@ function mostPointsScored(){
 console.log(mostPointsScored());
 
 //bon, on fait quoi?
-//initialise two variables: winningTeamScore and winningTeamName
+//initialise two variables: winningTeamScore and winningTeam
 //iterate as uz
 function winningTeam(){
     const gameObj = gameObject();
@@ -302,3 +302,27 @@ function winningTeam(){
 }
 
 console.log(winningTeam());
+
+
+function playerWithLongestName(){
+    const gameObj = gameObject();
+    let nameLength = 0;
+    let playerWithLongestName = "";
+
+    for (let gameKey in gameObj) {
+        let teamObj = gameObj[gameKey];
+        for (let teamKey in teamObj) {
+            let playersObj = teamObj["players"];
+            for (let playersKey in playersObj){
+                let playerName = playersKey;
+                if (playerName.length > nameLength){
+                    nameLength = playerName.length;
+                    playerWithLongestName = playerName;
+                }
+            }
+        }
+    }
+    return playerWithLongestName;
+}
+
+console.log(playerWithLongestName());
